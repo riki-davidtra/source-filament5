@@ -19,6 +19,8 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Storage;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -32,6 +34,12 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
+            ->favicon(function () {
+                // $favicon = App::make('settingItems')['favicon']->value ?? null;
+                $favicon =  null;
+                $faviconUrl = $favicon ? Storage::url($favicon) : asset('images/favicon-rd.png');
+                return $faviconUrl;
+            })
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([
