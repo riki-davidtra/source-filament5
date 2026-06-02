@@ -19,7 +19,11 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
+use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
+use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
+use Filament\Navigation\MenuItem;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class AdminPanelProvider extends PanelProvider
@@ -66,6 +70,29 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 FilamentShieldPlugin::make(),
+                FilamentEditProfilePlugin::make()
+                    ->slug('my-profile')
+                    ->setTitle('My Profile')
+                    ->setNavigationLabel('My Profile')
+                    // ->setNavigationGroup('Group Profile')
+                    ->setIcon('heroicon-o-user')
+                    // ->setSort(10)
+                    // ->canAccess(fn() => auth()->user()->id === 1)
+                    ->shouldRegisterNavigation(false)
+                    // ->shouldShowEmailForm()
+                    ->shouldShowDeleteAccountForm(false)
+                    // ->shouldShowSanctumTokens()
+                    // ->shouldShowBrowserSessionsForm() 
+                    ->shouldShowAvatarForm(value: true, directory: 'avatars', rules: 'mimes:jpeg,png|max:2048')
+                // ->customProfileComponents([
+                //     \App\Livewire\CustomProfileComponent::class,
+                // ])
+            ])
+            ->userMenuItems([
+                'profile' => MenuItem::make()
+                    ->label(fn() => Auth::user()->name)
+                    ->url(fn(): string => EditProfilePage::getUrl())
+                    ->icon('heroicon-m-user-circle'),
             ])
             ->sidebarCollapsibleOnDesktop()
             ->sidebarWidth('16rem');
