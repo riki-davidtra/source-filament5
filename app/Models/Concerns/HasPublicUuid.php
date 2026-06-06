@@ -6,13 +6,13 @@ use Ramsey\Uuid\Uuid;
 
 trait HasPublicUuid
 {
-    protected static function bootHasPublicUuid()
+    public function initializeHasPublicUuid(): void
     {
-        static::creating(function ($model) {
-            if (empty($model->uuid)) {
-                $model->uuid = (string) Uuid::uuid7();
-            }
-        });
+        $uuid = $this->getAttribute('uuid');
+
+        if (empty($uuid)) {
+            $this->setAttribute('uuid', (string) Uuid::uuid7());
+        }
     }
 
     public function getRouteKeyName(): string

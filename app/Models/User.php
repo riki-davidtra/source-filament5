@@ -16,7 +16,7 @@ use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Concerns\HasPublicUuid;
 
-#[Fillable(['name', 'email', 'password', 'username', 'avatar_url'])]
+#[Fillable(['name', 'email', 'password', 'avatar_url', 'uuid', 'username', 'tenant_id'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable implements FilamentUser, HasAvatar
 {
@@ -45,5 +45,10 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     {
         $avatarColumn = config('filament-edit-profile.avatar_column', 'avatar_url');
         return $this->$avatarColumn ? Storage::url($this->$avatarColumn) : null;
+    }
+
+    public function tenant()
+    {
+        return $this->belongsTo(Tenant::class);
     }
 }

@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $seeders = [
             UserSeeder::class,
             RolePermissionSeeder::class,
+            TenantSeeder::class,
         ];
 
         foreach ($seeders as $seeder) {

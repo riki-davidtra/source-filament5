@@ -6,23 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('username')->unique()->nullable();
+            $table->uuid('uuid')->unique()->after('id');
+            $table->string('username')->unique()->after('name');
+            $table->foreignId('tenant_id')->nullable()->constrained()->nullOnDelete()->after('password');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('username');
+            $table->dropColumn(['uuid', 'username', 'tenant_id']);
+            $table->dropForeign(['tenant_id']);
         });
     }
 };
