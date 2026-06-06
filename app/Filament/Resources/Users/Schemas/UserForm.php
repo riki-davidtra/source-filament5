@@ -31,28 +31,24 @@ class UserForm
                 TextInput::make('name')
                     ->label('Name')
                     ->required()
-                    ->string()
-                    ->maxLength(255),
+                                       ->maxLength(255),
                 TextInput::make('username')
                     ->label('Username')
                     ->required()
-                    ->string()
-                    ->maxLength(255)
+                                       ->maxLength(255)
                     ->regex('/^[a-zA-Z0-9._]+$/') // only letters, numbers, periods, underscores
                     ->unique(ignoreRecord: true),
                 TextInput::make('email')
                     ->label('Email')
                     ->required()
-                    ->string()
-                    ->maxLength(255)
+                                       ->maxLength(255)
                     ->email()
                     ->unique(ignoreRecord: true),
                 TextInput::make('password')
                     ->label('Password')
                     ->required(fn(string $context): bool => $context === 'create')
                     ->password()
-                    ->string()
-                    ->minLength(6)
+                                       ->minLength(6)
                     ->confirmed()
                     ->revealable()
                     ->autocomplete('new-password')
@@ -61,8 +57,7 @@ class UserForm
                     ->label('Password Confirmation')
                     ->required(fn(string $context): bool => $context === 'create')
                     ->password()
-                    ->string()
-                    ->minLength(6)
+                                       ->minLength(6)
                     ->revealable()
                     ->dehydrated(fn($state) => !empty($state)),
                 Select::make('tenant_id')
