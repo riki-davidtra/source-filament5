@@ -20,7 +20,7 @@ class TenantResource extends Resource
     protected static ?string $model = Tenant::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBuildingStorefront;
-    protected static ?int $navigationSort                      = 11;
+    protected static ?int $navigationSort                      = 12;
     protected static string | UnitEnum | null $navigationGroup = 'Masters';
     protected static ?string $navigationLabel                  = 'Tenants';
     protected static ?string $pluralModelLabel                 = 'Tenants';

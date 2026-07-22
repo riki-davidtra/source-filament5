@@ -30,10 +30,10 @@ class AppSeoSettingPage extends Page implements HasForms
     protected string $view = 'filament.pages.app-seo-setting-page';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::MagnifyingGlass;
-    protected static ?int $navigationSort = 13;
-    protected static string|UnitEnum|null $navigationGroup = 'Settings';
-    protected static ?string $navigationLabel = 'SEO Settings';
-    protected static ?string $title = 'SEO Settings';
+    protected static ?int $navigationSort                   = 23;
+    protected static string|UnitEnum|null $navigationGroup  = 'Settings';
+    protected static ?string $navigationLabel               = 'SEO Settings';
+    protected static ?string $title                         = 'SEO Settings';
 
     public ?array $data = [];
 

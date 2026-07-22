@@ -39,10 +39,12 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::Amber,
             ])
             ->favicon(function () {
-                // $favicon = App::make('settingItems')['favicon']->value ?? null;
-                $favicon =  null;
-                $faviconUrl = $favicon ? Storage::url($favicon) : asset('images/favicon-rd.png');
-                return $faviconUrl;
+                $favicon = appSettings()->favicon_url;
+                return $favicon ? Storage::disk('public')->url($favicon) : asset('images/favicon-rd.png');
+            })
+            ->brandName(function () {
+                $appName = appSettings()->app_name;
+                return $appName ? $appName : 'App Name';
             })
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
