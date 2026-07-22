@@ -13,12 +13,18 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class TenantResource extends Resource
 {
     protected static ?string $model = Tenant::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBuildingStorefront;
+    protected static ?int $navigationSort                      = 11;
+    protected static string | UnitEnum | null $navigationGroup = 'Masters';
+    protected static ?string $navigationLabel                  = 'Tenants';
+    protected static ?string $pluralModelLabel                 = 'Tenants';
+    protected static ?string $modelLabel                       = 'Tenant';
 
     protected static ?string $recordTitleAttribute = 'name';
 
