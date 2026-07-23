@@ -20,7 +20,7 @@ class AppSocialResource extends Resource
     protected static ?string $model = AppSocial::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Share;
-    protected static ?int $navigationSort                      = 22;
+    protected static ?int $navigationSort                      = 92;
     protected static string | UnitEnum | null $navigationGroup = 'Settings';
     protected static ?string $navigationLabel                  = 'Socials';
     protected static ?string $pluralModelLabel                 = 'Socials';

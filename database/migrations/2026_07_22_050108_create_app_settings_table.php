@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('phone', 30)->nullable();
             $table->string('whatsapp_number', 30)->nullable();
             $table->text('address')->nullable();
+            $table->text('map_embed_code')->nullable();
 
             // Lokalisasi (relevan untuk aplikasi apa pun, bukan cuma web statis)
             $table->string('timezone', 50)->default('Asia/Jakarta');

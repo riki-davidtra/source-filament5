@@ -33,7 +33,7 @@ class AppSettingPage extends Page implements HasForms
     protected string $view = 'filament.pages.app-setting-page';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::AdjustmentsHorizontal;
-    protected static ?int $navigationSort                   = 21;
+    protected static ?int $navigationSort                   = 91;
     protected static string|UnitEnum|null $navigationGroup  = 'Settings';
     protected static ?string $navigationLabel               = 'App Settings';
     protected static ?string $title                         = 'App Settings';
@@ -121,6 +121,12 @@ class AppSettingPage extends Page implements HasForms
 
                                     Textarea::make('address')
                                         ->label('Address')
+                                        ->rows(3)
+                                        ->columnSpanFull(),
+
+                                    Textarea::make('map_embed_code')
+                                        ->label('Map Embed Code')
+                                        ->helperText('Salin seluruh kode <iframe> dari Google Maps (klik Share > Embed a map > Copy HTML).')
                                         ->rows(3)
                                         ->columnSpanFull(),
                                 ]),

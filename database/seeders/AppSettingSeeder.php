@@ -28,6 +28,7 @@ class AppSettingSeeder extends Seeder
                 'phone' => null,
                 'whatsapp_number' => null,
                 'address' => null,
+                'map_embed_code' => null,
                 'timezone' => 'Asia/Jakarta',
                 'locale' => 'id',
                 'currency' => 'IDR',
