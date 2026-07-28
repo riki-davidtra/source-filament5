@@ -15,15 +15,14 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->unique();
 
-            // Identitas dasar
+            // Basic identity
             $table->string('app_name', 150)->nullable();
             $table->string('tagline', 200)->nullable();
-            $table->string('legal_name', 200)->nullable();  // nama resmi badan usaha, beda dari brand name
             $table->text('description')->nullable();
             $table->string('logo_url', 255)->nullable();
             $table->string('favicon_url', 255)->nullable();
 
-            // Kontak
+            // Contact
             $table->string('domain', 150)->nullable();
             $table->string('email', 150)->nullable();
             $table->string('phone', 30)->nullable();
@@ -31,12 +30,17 @@ return new class extends Migration
             $table->text('address')->nullable();
             $table->text('map_embed_code')->nullable();
 
-            // Lokalisasi (relevan untuk aplikasi apa pun, bukan cuma web statis)
+            // Legal & Compliance
+            $table->text('copyright_text')->nullable();
+            $table->string('privacy_url', 255)->nullable();
+            $table->string('terms_url', 255)->nullable();
+
+            // Localization
             $table->string('timezone', 50)->default('Asia/Jakarta');
             $table->string('locale', 10)->default('id');       // 'id', 'en', dst
             $table->string('currency', 10)->default('IDR');    // 'IDR', 'USD', dst
 
-            // Operasional
+            // Operations
             $table->boolean('maintenance_mode')->default(false);
             $table->text('maintenance_message')->nullable();
             $table->timestamps();

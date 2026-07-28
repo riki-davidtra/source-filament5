@@ -27,8 +27,7 @@ class DatabaseSeeder extends Seeder
             RolePermissionSeeder::class,
             TenantSeeder::class,
             AppSettingSeeder::class,
-            AppSocialSeeder::class,
-            AppSeoSettingSeeder::class,
+            SocialMediaSeeder::class,
         ];
 
         foreach ($seeders as $seeder) {

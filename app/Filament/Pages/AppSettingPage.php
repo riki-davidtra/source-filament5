@@ -60,12 +60,6 @@ class AppSettingPage extends Page implements HasForms
                                         ->required()
                                         ->maxLength(150),
 
-                                    TextInput::make('legal_name')
-                                        ->label('Legal Name')
-                                        ->maxLength(200)
-                                        ->helperText('Nama resmi badan usaha, jika berbeda dari nama aplikasi.')
-                                        ->placeholder('Contoh: PT Contoh Perusahaan'),
-
                                     TextInput::make('tagline')
                                         ->label('Tagline')
                                         ->maxLength(200)
@@ -129,6 +123,28 @@ class AppSettingPage extends Page implements HasForms
                                         ->helperText('Salin seluruh kode <iframe> dari Google Maps (klik Share > Embed a map > Copy HTML).')
                                         ->rows(3)
                                         ->columnSpanFull(),
+                                ]),
+
+                            Tab::make('Legal & Compliance')
+                                ->schema([
+                                    Textarea::make('copyright_text')
+                                        ->label('Copyright Text')
+                                        ->rows(2)
+                                        ->columnSpanFull()
+                                        ->helperText('Teks hak cipta di footer. Kosongkan jika ingin dibuat otomatis.')
+                                        ->placeholder('© ' . date('Y') . ' My Application. All rights reserved.'),
+
+                                    TextInput::make('privacy_url')
+                                        ->label('Privacy Policy URL')
+                                        ->maxLength(255)
+                                        ->helperText('Link ke halaman Kebijakan Privasi.')
+                                        ->placeholder('/privacy-policy'),
+
+                                    TextInput::make('terms_url')
+                                        ->label('Terms of Service URL')
+                                        ->maxLength(255)
+                                        ->helperText('Link ke halaman Syarat & Ketentuan.')
+                                        ->placeholder('/terms'),
                                 ]),
 
                             Tab::make('Localization')

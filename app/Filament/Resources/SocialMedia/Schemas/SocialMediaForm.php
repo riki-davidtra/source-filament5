@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\AppSocials\Schemas;
+namespace App\Filament\Resources\SocialMedia\Schemas;
 
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
-class AppSocialForm
+class SocialMediaForm
 {
     public static function configure(Schema $schema): Schema
     {

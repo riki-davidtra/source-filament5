@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('app_socials', function (Blueprint $table) {
+        Schema::create('social_media', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->unique();
             $table->string('platform', 50);
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('app_socials');
+        Schema::dropIfExists('social_media');
     }
 };

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Model;
 
 #[Guarded([])]
-class AppSeoSetting extends Model
+class SocialMedia extends Model
 {
     use HasPublicUuid;
 }

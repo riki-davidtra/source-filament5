@@ -19,19 +19,25 @@ class AppSettingSeeder extends Seeder
             [
                 'app_name' => 'My Application',
                 'tagline' => null,
-                'legal_name' => null,
                 'description' => null,
                 'logo_url' => null,
                 'favicon_url' => null,
+
                 'domain' => null,
                 'email' => null,
                 'phone' => null,
                 'whatsapp_number' => null,
                 'address' => null,
                 'map_embed_code' => null,
+
+                'copyright_text' => '© ' . date('Y') . ' My Application. All rights reserved.',
+                'privacy_url' => '/privacy-policy',
+                'terms_url' => '/terms',
+
                 'timezone' => 'Asia/Jakarta',
                 'locale' => 'id',
                 'currency' => 'IDR',
+
                 'maintenance_mode' => false,
                 'maintenance_message' => null,
             ]

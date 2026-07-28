@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\AppSocial;
+use App\Models\SocialMedia;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class AppSocialSeeder extends Seeder
+class SocialMediaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -47,7 +47,7 @@ class AppSocialSeeder extends Seeder
         ];
 
         foreach ($socials as $social) {
-            AppSocial::query()->firstOrCreate(
+            SocialMedia::query()->firstOrCreate(
                 ['platform' => $social['platform']],
                 $social
             );
